@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+        let dataquery = {"function": "fetch", "query": "select * from nsi.s_upak"}
+        function loadJSON() {
+            $.ajax({
+                url:"http://10.10.3.17:8000/request/common/common_handler/SqlQuery/sql_query?session=2",
+                type: "POST",
+                headers: {
+                    "Accept": "application/json; odata=verbose"
+                },
+                data: JSON.stringify(dataquery),
+                dataType: "json",
+            success: function (dataset){
+                console.log(dataset)
+        }
+    })
+}
+    </script>
+    <title>Title</title>
+</head>
+<body>
+    <a href="#" onclick="loadJSON()">hello</a>
+    <br>
+    <span id="maintext"> {{ maintext }}</span>
+</body>
+</html>
